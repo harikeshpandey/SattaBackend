@@ -4,6 +4,13 @@ const cors = require('cors');
 const apiRoutes = require('./routes/api');
 
 const app = express();
+app.use(cors({
+  origin: ['https://pantnagar-satta.vercel.app'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
+app.options('*', cors());
 const PORT = process.env.PORT || 5000;
 
 app.use(cors());
